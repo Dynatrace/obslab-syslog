@@ -203,7 +203,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    GitHub
+    View Code on GitHub
   </div>
 </a>
       </div>
@@ -249,7 +249,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    GitHub
+    View Code on GitHub
   </div>
 </a>
     </div>
@@ -535,18 +535,18 @@
 <p>Now that the mechanics of the environment are understood, it is time to use it.</p>
 <h2 id="start-collector">Start Collector<a class="headerlink" href="#start-collector" title="Permanent link">#</a></h2>
 <p>Run the following command to start the collector:</p>
-<pre><code>./dynatrace-otel-collector --config=config.yaml
-</code></pre>
+<div class="highlight"><pre><span></span><code>./dynatrace-otel-collector --config=config.yaml
+</code></pre></div>
 <h2 id="generate-syslog-data">Generate syslog Data<a class="headerlink" href="#generate-syslog-data" title="Permanent link">#</a></h2>
 <p>Open a new terminal and generate a single syslog message and send to the collector:</p>
-<pre><code>python syslog_generator.py --host 127.0.0.1 --port 54526 --file sample_log_lines.log --count 1
-</code></pre>
+<div class="highlight"><pre><span></span><code>python syslog_generator.py --host 127.0.0.1 --port 54526 --file sample_log_lines.log --count 1
+</code></pre></div>
 <p>Output like this will be shown:</p>
-<pre><code>[+] Sending 1 messages to 127.0.0.1 on port 54526
+<div class="highlight"><pre><span></span><code>[+] Sending 1 messages to 127.0.0.1 on port 54526
 [+] Sent: Aug 28 00:48:56: Log line 2
-</code></pre>
+</code></pre></div>
 <p>Switch to the collector terminal window and you should see output like this which proves the data was received by the collector and sent to Dynatrace:</p>
-<pre><code>2024-08-28T00:48:56.934Z        info    ResourceLog #0
+<div class="highlight"><pre><span></span><code>2024-08-28T00:48:56.934Z        info    ResourceLog #0
 Resource SchemaURL: 
 ScopeLogs #0
 ScopeLogs SchemaURL: 
@@ -568,7 +568,7 @@ Trace ID:
 Span ID: 
 Flags: 0
         {&quot;kind&quot;: &quot;exporter&quot;, &quot;data_type&quot;: &quot;logs&quot;, &quot;name&quot;: &quot;debug&quot;}
-</code></pre>
+</code></pre></div>
 <div class="grid cards">
 <ul>
 <li><a href="../view-data/">Click here to continue <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span></a></li>

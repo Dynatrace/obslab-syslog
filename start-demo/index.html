@@ -203,7 +203,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    GitHub
+    View Code on GitHub
   </div>
 </a>
       </div>
@@ -249,7 +249,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    GitHub
+    View Code on GitHub
   </div>
 </a>
     </div>
@@ -650,35 +650,35 @@
 <p>Understanding the configuration of the collector is key to understanding how the data gets from your devices into Dynatrace.</p>
 <p>Note: You do not need to modify <code>config.yaml</code> file.</p>
 <h4 id="receivers">Receivers<a class="headerlink" href="#receivers" title="Permanent link">#</a></h4>
-<pre><code>receivers:
+<div class="highlight"><pre><span></span><code>receivers:
   syslog:
     udp:
       listen_address: &quot;127.0.0.1:54526&quot;
     protocol: rfc3164
-</code></pre>
+</code></pre></div>
 <p>The receivers block describes how data is received by the collector.</p>
 <p>In this case, the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/syslogreceiver" target="_blank">syslog receiver</a> is listening for incoming <code>UDP</code> connections on port <code>54526</code> and expecting incoming messages to by formatted in <a href="https://datatracker.ietf.org/doc/html/rfc3164" target="_blank">RFC3164 format</a>.</p>
 <h4 id="exporters">Exporters<a class="headerlink" href="#exporters" title="Permanent link">#</a></h4>
-<pre><code>exporters:
+<div class="highlight"><pre><span></span><code>exporters:
   debug:
     verbosity: detailed
   otlphttp:
     endpoint: &quot;${env:DT_ENDPOINT_SYSLOG}/api/v2/otlp&quot;
     headers:
       Authorization: &quot;Api-Token ${env:DT_API_TOKEN_SYSLOG}&quot;
-</code></pre>
+</code></pre></div>
 <p>The exporters block defines what happens to the data at the point it leaves the collector.</p>
 <p>2 exporters are defined: <code>debug</code> and <code>otlphttp</code>. The <code>debug</code> exporter sends output to the collector console. It is included here as a training aid for the demo so you can see what's happening.</p>
 <p>The <code>otlphttp</code> exporter sends data to an endpoint in OpenTelemetry Protocol (OTLP) format via HTTPS. Dynatrace natively understands the OTLP format.</p>
 <p>Notice that two environment variables are referenced: <code>DT_ENDPOINT_SYSLOG</code> and <code>DT_API_TOKEN_SYSLOG</code> you may recall these from the form you completed when the codespace started.</p>
 <p>These environment variables are already set for you, so you don't need to do anything else.</p>
 <h4 id="pipelines">Pipelines<a class="headerlink" href="#pipelines" title="Permanent link">#</a></h4>
-<pre><code>service:
+<div class="highlight"><pre><span></span><code>service:
   pipelines:
     logs:
       receivers: [syslog]
       exporters: [debug, otlphttp]
-</code></pre>
+</code></pre></div>
 <p>The pipelines block defines how the collector components are connected in an end-to-end pipeline.</p>
 <p>In this case, <code>1</code> pipeline (dealing with log data) is defined. This pipeline will receive data using the <code>syslog</code> receiver and export it to <strong>both</strong> the <code>debug</code> and <code>otlphttp</code> exporters simultaneously.</p>
 <div class="grid cards">
