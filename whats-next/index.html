@@ -34,8 +34,13 @@
 
     
     
+  <!-- Add scripts that need to run before here -->
+  
       
     
+  <!-- Add scripts that need to run afterwards here -->
+  <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/145e12d594f/bf64904yne/66a02cbdddf038e8_complete.js" crossorigin="anonymous"></script>
+
     
       
         
@@ -452,6 +457,12 @@
 
 
   <h1>7. What's Next?</h1>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "7. whats-next"});
+});
+</script>
 
 <p>This tutorial demonstrates how to <a href="https://docs.dynatrace.com/docs/ingest-from/opentelemetry/collector/use-cases/syslog" target="_blank">ingest syslog via the OpenTelemetry collector</a>.</p>
 <p>You can also ingest syslog in these ways:</p>

@@ -34,8 +34,13 @@
 
     
     
+  <!-- Add scripts that need to run before here -->
+  
       
     
+  <!-- Add scripts that need to run afterwards here -->
+  <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/145e12d594f/bf64904yne/66a02cbdddf038e8_complete.js" crossorigin="anonymous"></script>
+
     
       
         
@@ -529,6 +534,12 @@
 
 
   <h1>4. Run Demo</h1>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "3. start-demo"});
+});
+</script>
 
 <p>Now that the mechanics of the environment are understood, it is time to use it.</p>
 <h2 id="start-collector">Start Collector<a class="headerlink" href="#start-collector" title="Permanent link">#</a></h2>

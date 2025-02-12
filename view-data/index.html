@@ -34,8 +34,13 @@
 
     
     
+  <!-- Add scripts that need to run before here -->
+  
       
     
+  <!-- Add scripts that need to run afterwards here -->
+  <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/145e12d594f/bf64904yne/66a02cbdddf038e8_complete.js" crossorigin="anonymous"></script>
+
     
       
         
@@ -511,6 +516,12 @@
 
 
   <h1>5. View Data</h1>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "5. view-data"});
+});
+</script>
 
 <p>It is time to view the data in Dynatrace.</p>
 <p>In Dynatrace:</p>

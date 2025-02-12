@@ -34,8 +34,13 @@
 
     
     
+  <!-- Add scripts that need to run before here -->
+  
       
     
+  <!-- Add scripts that need to run afterwards here -->
+  <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/145e12d594f/bf64904yne/66a02cbdddf038e8_complete.js" crossorigin="anonymous"></script>
+
     
       
         
@@ -547,6 +552,12 @@
 
 
   <h1>2. Getting Started</h1>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "2. getting-started"});
+});
+</script>
 
 <p>You will need to collect some information before you can begin.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>

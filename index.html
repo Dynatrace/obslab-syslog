@@ -32,8 +32,13 @@
 
     
     
+  <!-- Add scripts that need to run before here -->
+  
       
     
+  <!-- Add scripts that need to run afterwards here -->
+  <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/145e12d594f/bf64904yne/66a02cbdddf038e8_complete.js" crossorigin="anonymous"></script>
+
     
       
         
@@ -542,6 +547,12 @@
 <p class="admonition-title">View the Code</p>
 <p>The code for this repository is hosted on GitHub. Click the "View Code on GitHub" link above.</p>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "1. homepage"});
+});
+</script>
+
 <p>This hands on Observability Lab will show how to ingest syslog log data into Dynatrace via the <a href="https://docs.dynatrace.com/docs/extend-dynatrace/opentelemetry/collector" target="_blank">Dynatrace collector</a>.</p>
 <p><img alt="architecture" src="images/syslog.png" />
 <img alt="architecture" src="images/dt-notebook-1.png" />

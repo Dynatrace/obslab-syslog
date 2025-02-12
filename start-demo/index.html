@@ -34,8 +34,13 @@
 
     
     
+  <!-- Add scripts that need to run before here -->
+  
       
     
+  <!-- Add scripts that need to run afterwards here -->
+  <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/145e12d594f/bf64904yne/66a02cbdddf038e8_complete.js" crossorigin="anonymous"></script>
+
     
       
         
@@ -632,6 +637,12 @@
 <p>During the next step you will be prompted for some details.</p>
 <p>Enter the relevant details in the GitHub form.</p>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "3. start-demo"});
+});
+</script>
+
 <p>Click this button to launch the demo in a new tab.</p>
 <p>Provide the tenant URL and API token via the form. These will be encrypted and stored in GitHub. They will also automatically be set as environment variables in the codespace.</p>
 <p><a href="https://codespaces.new/dynatrace/obslab-syslog" target="_blank"><img alt="Open in GitHub Codespaces" src="https://github.com/codespaces/badge.svg" /></a></p>
