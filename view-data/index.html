@@ -528,10 +528,13 @@ document.addEventListener('DOMContentLoaded', function() {
 <ul>
 <li>Press <code>ctrl + k</code> search for <code>notebooks</code></li>
 <li>Add a new section for <code>logs</code></li>
-<li>Search for <code>Log line</code></li>
+<li>Search for:</li>
 </ul>
+<div class="highlight"><pre><span></span><code>fetch logs
+| filter matchesPhrase(content, &quot;Log line&quot;)
+</code></pre></div>
 <p><img alt="dynatrace notebook syslog" src="../images/dt-notebook-1.png" /></p>
-<p>Scroll right on the log line. Notice that Dynatrace natively understands syslog and has automatically mapped the fields to their human readable names.</p>
+<p>Scroll to the right on the log line. Notice that Dynatrace natively understands syslog and has automatically mapped the fields to their human readable names.</p>
 <p><img alt="dynatrace syslog mapping" src="../images/dt-notebook-2.png" /></p>
 <p>These fields can be used to filter, group or parse log data further.</p>
 <p>For example, the following query shows all log lines containing the text <code>Log line</code> split by the <code>priority</code>, <code>hostname</code> and <code>proc_id</code> fields:</p>

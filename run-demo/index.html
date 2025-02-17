@@ -544,39 +544,15 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Now that the mechanics of the environment are understood, it is time to use it.</p>
 <h2 id="start-collector">Start Collector<a class="headerlink" href="#start-collector" title="Permanent link">#</a></h2>
 <p>Run the following command to start the collector:</p>
-<div class="highlight"><pre><span></span><code>./dynatrace-otel-collector --config=config.yaml
+<div class="highlight"><pre><span></span><code>/workspaces/$RepositoryName/dynatrace-otel-collector --config=/workspaces/$RepositoryName/config.yaml
 </code></pre></div>
 <h2 id="generate-syslog-data">Generate syslog Data<a class="headerlink" href="#generate-syslog-data" title="Permanent link">#</a></h2>
 <p>Open a new terminal and generate a single syslog message and send to the collector:</p>
-<div class="highlight"><pre><span></span><code>python syslog_generator.py --host 127.0.0.1 --port 54526 --file sample_log_lines.log --count 1
+<div class="highlight"><pre><span></span><code>python /workspaces/$RepositoryName/syslog_generator.py --host 127.0.0.1 --port 54526 --file /workspaces/$RepositoryName/sample_log_lines.log --count 1
 </code></pre></div>
 <p>Output like this will be shown:</p>
 <div class="highlight"><pre><span></span><code>[+] Sending 1 messages to 127.0.0.1 on port 54526
 [+] Sent: Aug 28 00:48:56: Log line 2
-</code></pre></div>
-<p>Switch to the collector terminal window and you should see output like this which proves the data was received by the collector and sent to Dynatrace:</p>
-<div class="highlight"><pre><span></span><code>2024-08-28T00:48:56.934Z        info    ResourceLog #0
-Resource SchemaURL: 
-ScopeLogs #0
-ScopeLogs SchemaURL: 
-InstrumentationScope  
-LogRecord #0
-ObservedTimestamp: 2024-08-28 00:48:56.875906606 +0000 UTC
-Timestamp: 2024-08-28 00:48:56 +0000 UTC
-SeverityText: info
-SeverityNumber: Info(9)
-Body: Str(&lt;14&gt;Aug 28 00:48:56 host7.example.com python[3968]: Log line 2)
-Attributes:
-     -&gt; hostname: Str(host7.example.com)
-     -&gt; appname: Str(python)
-     -&gt; message: Str(Log line 2)
-     -&gt; proc_id: Str(3968)
-     -&gt; priority: Int(14)
-     -&gt; facility: Int(1)
-Trace ID: 
-Span ID: 
-Flags: 0
-        {&quot;kind&quot;: &quot;exporter&quot;, &quot;data_type&quot;: &quot;logs&quot;, &quot;name&quot;: &quot;debug&quot;}
 </code></pre></div>
 <div class="grid cards">
 <ul>
