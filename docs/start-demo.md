@@ -53,18 +53,16 @@ exporters:
   debug:
     verbosity: detailed
   otlphttp:
-    endpoint: "${env:DT_ENDPOINT_SYSLOG}/api/v2/otlp"
+    endpoint: "https://YourTenantID.live.dynatrace.com/api/v2/otlp"
     headers:
-      Authorization: "Api-Token ${env:DT_API_TOKEN_SYSLOG}"
+      Authorization: "Api-Token ${env:DT_API_TOKEN}"
 ```
 
 The exporters block defines what happens to the data at the point it leaves the collector.
 
-2 exporters are defined: `debug` and `otlphttp`. The `debug` exporter sends output to the collector console. It is included here as a training aid for the demo so you can see what's happening.
-
 The `otlphttp` exporter sends data to an endpoint in OpenTelemetry Protocol (OTLP) format via HTTPS. Dynatrace natively understands the OTLP format.
 
-Notice that two environment variables are referenced: `DT_ENDPOINT_SYSLOG` and `DT_API_TOKEN_SYSLOG` you may recall these from the form you completed when the codespace started.
+Notice that an environment variables is referenced: `DT_API_TOKEN` you may recall these from the form you completed when the codespace started. The Dynatrace URL is automatically build (by the codespace at startup) and placed into the config.yaml file. You do not need to change `config.yaml`.
 
 These environment variables are already set for you, so you don't need to do anything else.
 
@@ -75,12 +73,12 @@ service:
   pipelines:
     logs:
       receivers: [syslog]
-      exporters: [debug, otlphttp]
+      exporters: [otlphttp]
 ```
 
 The pipelines block defines how the collector components are connected in an end-to-end pipeline.
 
-In this case, `1` pipeline (dealing with log data) is defined. This pipeline will receive data using the `syslog` receiver and export it to **both** the `debug` and `otlphttp` exporters simultaneously.
+In this case, `1` pipeline (dealing with log data) is defined. This pipeline will receive data using the `syslog` receiver and export it to the `otlphttp` exporters simultaneously.
 
 <div class="grid cards" markdown>
 - [Click here to continue :octicons-arrow-right-24:](run-demo.md)
