@@ -746,24 +746,23 @@ document.addEventListener('DOMContentLoaded', function() {
   debug:
     verbosity: detailed
   otlphttp:
-    endpoint: &quot;${env:DT_ENDPOINT_SYSLOG}/api/v2/otlp&quot;
+    endpoint: &quot;https://YourTenantID.live.dynatrace.com/api/v2/otlp&quot;
     headers:
-      Authorization: &quot;Api-Token ${env:DT_API_TOKEN_SYSLOG}&quot;
+      Authorization: &quot;Api-Token ${env:DT_API_TOKEN}&quot;
 </code></pre></div>
 <p>The exporters block defines what happens to the data at the point it leaves the collector.</p>
-<p>2 exporters are defined: <code>debug</code> and <code>otlphttp</code>. The <code>debug</code> exporter sends output to the collector console. It is included here as a training aid for the demo so you can see what's happening.</p>
 <p>The <code>otlphttp</code> exporter sends data to an endpoint in OpenTelemetry Protocol (OTLP) format via HTTPS. Dynatrace natively understands the OTLP format.</p>
-<p>Notice that two environment variables are referenced: <code>DT_ENDPOINT_SYSLOG</code> and <code>DT_API_TOKEN_SYSLOG</code> you may recall these from the form you completed when the codespace started.</p>
+<p>Notice that an environment variables is referenced: <code>DT_API_TOKEN</code> you may recall these from the form you completed when the codespace started. The Dynatrace URL is automatically build (by the codespace at startup) and placed into the config.yaml file. You do not need to change <code>config.yaml</code>.</p>
 <p>These environment variables are already set for you, so you don't need to do anything else.</p>
 <h4 id="pipelines">Pipelines<a class="headerlink" href="#pipelines" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code>service:
   pipelines:
     logs:
       receivers: [syslog]
-      exporters: [debug, otlphttp]
+      exporters: [otlphttp]
 </code></pre></div>
 <p>The pipelines block defines how the collector components are connected in an end-to-end pipeline.</p>
-<p>In this case, <code>1</code> pipeline (dealing with log data) is defined. This pipeline will receive data using the <code>syslog</code> receiver and export it to <strong>both</strong> the <code>debug</code> and <code>otlphttp</code> exporters simultaneously.</p>
+<p>In this case, <code>1</code> pipeline (dealing with log data) is defined. This pipeline will receive data using the <code>syslog</code> receiver and export it to the <code>otlphttp</code> exporters simultaneously.</p>
 <div class="grid cards">
 <ul>
 <li><a href="../run-demo/">Click here to continue <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span></a></li>
