@@ -15,6 +15,7 @@ theme:
   custom_dir: docs/overrides
   features:
     - content.code.copy
+    - content.tabs.link
   palette:
 
   # Palette toggle for automatic mode
@@ -50,6 +51,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.snippets:
       base_path: ["docs"]
+  - pymdownx.tabbed:
+      alternate_style: true
 plugins:
     - search
 extra_css:

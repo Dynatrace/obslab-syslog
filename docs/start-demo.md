@@ -1,13 +1,13 @@
 ## Start Demo
 
---8<-- "snippets/codespace-details-warning-box.md"
 --8<-- "snippets/bizevent-start-demo.js"
 
-Click this button to launch the demo in a new tab.
+=== "Run in Cloud"
+    --8<-- "snippets/codespace-details-warning-box.md"
+    --8<-- "snippets/start-demo-run-in-cloud.md"
 
-Provide the tenant URL and API token via the form. These will be encrypted and stored in GitHub. They will also automatically be set as environment variables in the codespace.
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/dynatrace/obslab-syslog){target=_blank}
+=== "Run Locally"
+    --8<-- "snippets/start-demo-run-locally.md"
 
 ## Understand Demo Environment
 
