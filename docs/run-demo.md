@@ -19,13 +19,6 @@ Open a new terminal and generate a single syslog message and send to the collect
 python3 /workspaces/$RepositoryName/syslog_generator.py --host 127.0.0.1 --port 54526 --file /workspaces/$RepositoryName/sample_log_lines.log --count 1
 ```
 
-Output like this will be shown:
-
-```
-[+] Sending 1 messages to 127.0.0.1 on port 54526
-[+] Sent: Aug 28 00:48:56: Log line 2
-```
-
 <div class="grid cards" markdown>
 - [Click here to continue :octicons-arrow-right-24:](view-data.md)
 </div>
