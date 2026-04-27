@@ -3,7 +3,7 @@
 {
 	"name": "syslog ingest lab",
 
-	"image": "ubuntu:jammy",
+	"image": "ubuntu:noble",
 
 	// "features": {
 	// 	"ghcr.io/devcontainers/features/docker-in-docker:2.12.2": {}
